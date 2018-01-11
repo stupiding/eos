@@ -31,6 +31,7 @@
 #include "eos/morphablemodel/PcaModel.hpp"
 #include "eos/pca/pca.hpp"
 #include "eos/render/texture_extraction.hpp"
+#include "eos/render/render_affine.hpp"
 
 #include "pybind11/eigen.h"
 #include "pybind11/pybind11.h"
