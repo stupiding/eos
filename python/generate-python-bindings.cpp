@@ -286,7 +286,7 @@ PYBIND11_MODULE(eos, eos_module)
                       "Extracts the texture of the face from the given image and stores it as isomap (a rectangular texture map).",
                       py::arg("mesh"), py::arg("rendering_params"), py::arg("image"), py::arg("compute_view_angle") = false, py::arg("isomap_resolution") = 512);
 
-    render_module.def("render_affine", [](const core::Mesh& mesh, const fitting::RenderingParameters& rendering_params, int viewport_width, int viewport_height, bool do_backface_culling) {
+    render_module.def("render_depth", [](const core::Mesh& mesh, const fitting::RenderingParameters& rendering_params, int viewport_width, int viewport_height, bool do_backface_culling) {
 		core::Image1d depthbuffer;
 		Eigen::Matrix<float, 3, 4> affine_from_ortho = fitting::get_3x4_affine_camera_matrix(rendering_params,  viewport_width, viewport_height);
 		std::tie(std::ignore, depthbuffer) = render::render_affine(mesh, affine_from_ortho, viewport_width, viewport_height);
